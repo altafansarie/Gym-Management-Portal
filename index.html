@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <title>Pro Health Fitness | Gym Management Portal - Katihar</title>
+  
+  <!-- Modern Metallic Stylesheets -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 4v16M18 4v16M2 8h4M2 16h4M18 8h4M18 16h4M6 12h12'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-wrapper">
+        <div class="brand-badge">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4v16M18 4v16M2 8h4M2 16h4M18 8h4M18 16h4M6 12h12"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="brand-title chrome-heading">PRO HEALTH</h1>
+            <div style="font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; color: var(--steel-cyan); line-height: 1;">FITNESS CLUB</div>
+          </div>
+        </div>
+        <div class="brand-address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>MG Road, Katihar - 854105</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu">
+        <a class="nav-item active" data-tab="dashboard">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </div>
+        </a>
+
+        <a class="nav-item" data-tab="members">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Members</span>
+          </div>
+        </a>
+
+        <a class="nav-item" data-tab="billing">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <span>Billing & Fees</span>
+          </div>
+        </a>
+
+        <a class="nav-item" data-tab="workouts">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            <span>Workout Schedules</span>
+          </div>
+        </a>
+
+        <a class="nav-item" data-tab="timing">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Timings & Batches</span>
+          </div>
+        </a>
+
+        <a class="nav-item" data-tab="alerts">
+          <div class="nav-item-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Monthly Alerts</span>
+          </div>
+          <span class="nav-badge" id="nav-alerts-badge">0</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer Status -->
+      <div class="sidebar-footer">
+        <div class="gym-quick-status">
+          <div class="status-row">
+            <span style="color: var(--text-muted);">Gym Status:</span>
+            <span style="color: var(--status-active); font-weight: 700;">
+              <span class="status-dot"></span>OPEN
+            </span>
+          </div>
+          <div class="status-row" style="font-size: 0.72rem; color: var(--text-secondary);">
+            <span>Hours:</span>
+            <span>05:30 AM - 10:30 PM</span>
+          </div>
+          <div class="status-row" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">
+            <span>Location:</span>
+            <span>Katihar, Bihar</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 6px;">
+          <button class="btn btn-outline btn-sm" style="flex: 1; font-size: 0.72rem; padding: 6px;" onclick="App.exportDataJSON()" title="Export Local Backup">
+            Backup JSON
+          </button>
+          <button class="btn btn-outline btn-sm" style="flex: 1; font-size: 0.72rem; padding: 6px;" onclick="App.clearAllData()" title="Clear all data and reset to fresh portal">
+            Clear Data
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="main-content">
+      <!-- Top Command Bar Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div>
+            <span class="page-title chrome-heading">PRO HEALTH FITNESS PORTAL</span>
+            <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em;">KATIHAR DESK • MANAGEMENT CONSOLE</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Live Time Clock -->
+          <div class="clock-widget">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span id="header-live-clock">Loading...</span>
+          </div>
+
+          <!-- Active Batch Badge -->
+          <span class="badge badge-silver" id="header-active-batch-badge" style="display: none;"></span>
+
+          <!-- Alerts Bell Shortcut -->
+          <button class="btn btn-icon" onclick="App.switchTab('alerts')" title="View Expiry & Dues Alerts" style="position: relative;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="nav-badge" id="header-alerts-badge" style="position: absolute; top: -4px; right: -4px; font-size: 0.65rem; padding: 2px 5px;">0</span>
+          </button>
+
+          <!-- Primary Header Actions -->
+          <button class="btn btn-primary btn-sm" onclick="MembersModule.openAddModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Member</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ==================== VIEW 1: DASHBOARD ==================== -->
+      <section class="view-pane active" id="view-dashboard">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2>Command Dashboard</h2>
+            <p class="subtitle">Overview of members, billing collections, and daily operations in Katihar.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-secondary btn-sm" onclick="BillingModule.openNewBillModal()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Collect Payment
+            </button>
+            <button class="btn btn-metallic-gold btn-sm" onclick="App.switchTab('timing')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+              Quick Check-in
+            </button>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <!-- Active Members -->
+          <div class="metallic-card metric-card">
+            <div class="metric-header">
+              <span class="metric-title">Active Members</span>
+              <div class="metric-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="dash-active-members">0</div>
+            <div class="metric-sub positive">
+              <span>● Enrolled in Katihar facility</span>
+            </div>
+          </div>
+
+          <!-- Total Collected Revenue -->
+          <div class="metallic-card metric-card">
+            <div class="metric-header">
+              <span class="metric-title">Fee Collections</span>
+              <div class="metric-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="dash-revenue">₹0</div>
+            <div class="metric-sub">
+              <span>Verified receipt logs</span>
+            </div>
+          </div>
+
+          <!-- Pending Fees / Receivables -->
+          <div class="metallic-card metric-card">
+            <div class="metric-header">
+              <span class="metric-title">Pending Dues</span>
+              <div class="metric-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+            </div>
+            <div class="metric-value" style="color: var(--status-due);" id="dash-total-dues">₹0</div>
+            <div class="metric-sub urgent">
+              <span>Awaiting member settlement</span>
+            </div>
+          </div>
+
+          <!-- Check-ins Today -->
+          <div class="metallic-card metric-card">
+            <div class="metric-header">
+              <span class="metric-title">Check-ins Today</span>
+              <div class="metric-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+            </div>
+            <div class="metric-value" id="dash-checkins-today">0</div>
+            <div class="metric-sub positive">
+              <span>Trainees on gym floor</span>
+            </div>
+          </div>
+
+          <!-- Monthly Alerts -->
+          <div class="metallic-card metric-card">
+            <div class="metric-header">
+              <span class="metric-title">Monthly Alerts</span>
+              <div class="metric-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              </div>
+            </div>
+            <div class="metric-value" style="color: var(--status-danger);" id="dash-alerts-count">0</div>
+            <div class="metric-sub urgent">
+              <span>Expiring / Overdue accounts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Column Dashboard Area -->
+        <div class="dashboard-grid-2">
+          <!-- Column 1: Immediate Action Feed -->
+          <div class="metallic-card" style="padding: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+              <div>
+                <h3 style="font-size: 1.15rem;">Urgent Alerts & Expiring Memberships</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">Accounts requiring immediate contact or renewal.</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="App.switchTab('alerts')">
+                View All Alerts
+              </button>
+            </div>
+
+            <div id="dash-urgent-feed">
+              <!-- Rendered via App.updateDashboardStats() -->
+            </div>
+          </div>
+
+          <!-- Column 2: Facility & Timing Quick View -->
+          <div class="metallic-card" style="padding: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+              <div>
+                <h3 style="font-size: 1.15rem;">Gym Operating Hours</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary);">MG Road, Katihar Schedule</p>
+              </div>
+              <span class="badge badge-active">Open Now</span>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--titanium-border); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem;">
+                <span style="color: var(--text-secondary);">Monday - Saturday</span>
+                <span style="font-weight: 700; color: #ffffff;">05:30 AM - 10:30 PM</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
+                <span style="color: var(--text-secondary);">Sunday (Special)</span>
+                <span style="font-weight: 700; color: var(--steel-cyan);">06:00 AM - 01:00 PM</span>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--titanium-border); padding-top: 14px;">
+              <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 10px;">
+                Front Desk Contacts
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-primary); margin-bottom: 4px;">
+                📞 Phone: <strong>+91 98351 28940</strong>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-primary); margin-bottom: 4px;">
+                📍 Address: <strong>MG Road, Katihar - 854105</strong>
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                GSTIN: 10AAKCP1294F1Z8
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gym Membership Plans Cards -->
+        <div style="margin-top: 10px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 16px;">Available Membership Plans</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <div class="metallic-card" style="padding: 18px;">
+              <span class="badge badge-silver">Monthly</span>
+              <div style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-heading); margin: 8px 0 4px 0; color: #ffffff;">₹1,000</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Full Gym Access + Cardio + Locker</div>
+            </div>
+
+            <div class="metallic-card" style="padding: 18px;">
+              <span class="badge badge-active">Quarterly Pro</span>
+              <div style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-heading); margin: 8px 0 4px 0; color: #ffffff;">₹2,700</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Save ₹300 + Free Diet Chart + Cardio</div>
+            </div>
+
+            <div class="metallic-card" style="padding: 18px;">
+              <span class="badge badge-pending">Half-Yearly Elite</span>
+              <div style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-heading); margin: 8px 0 4px 0; color: #ffffff;">₹5,000</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Trainer Guidance + 1 Month Freeze</div>
+            </div>
+
+            <div class="metallic-card" style="padding: 18px; border-color: rgba(234, 179, 8, 0.4);">
+              <span class="badge badge-gold">Annual Titan (VIP)</span>
+              <div style="font-size: 1.6rem; font-weight: 800; font-family: var(--font-heading); margin: 8px 0 4px 0; color: #fef08a;">₹9,000</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Best Value + Nutritionist + Gym Kit</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 2: MEMBERS ==================== -->
+      <section class="view-pane" id="view-members">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2>Member Directory</h2>
+            <p class="subtitle">Search, view profiles, track renewals, and assign custom fitness routines.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" onclick="MembersModule.openAddModal()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Member</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="filter-bar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="member-search-input" class="form-control" placeholder="Search by name, phone, member ID, address...">
+          </div>
+
+          <div class="filter-group">
+            <select id="member-status-filter" class="form-control" style="width: 170px;">
+              <option value="all">All Members</option>
+              <option value="active">Active Members</option>
+              <option value="expiring_soon">Expiring Soon (7d)</option>
+              <option value="expired">Expired Accounts</option>
+              <option value="due">Pending Dues</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Members Table -->
+        <div class="table-responsive">
+          <table class="metallic-table">
+            <thead>
+              <tr>
+                <th>Member Name & Contact</th>
+                <th>Plan & Expiry</th>
+                <th>Batch Timing</th>
+                <th>Status</th>
+                <th>Balance Due</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="members-table-body">
+              <!-- Rendered via MembersModule -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 3: BILLING & INVOICES ==================== -->
+      <section class="view-pane" id="view-billing">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2>Billing & Invoices</h2>
+            <p class="subtitle">Record membership payments, settle balances, and issue official GST receipts.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" onclick="BillingModule.openNewBillModal()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>New Bill / Payment</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="billing-search-input" class="form-control" placeholder="Search by member name, bill ID, or member ID...">
+          </div>
+
+          <div class="filter-group">
+            <select id="billing-status-filter" class="form-control" style="width: 160px;">
+              <option value="all">All Invoices</option>
+              <option value="PAID">Fully Paid</option>
+              <option value="PARTIAL">Partial Payment</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Billing Table -->
+        <div class="table-responsive">
+          <table class="metallic-table">
+            <thead>
+              <tr>
+                <th>Invoice ID & Date</th>
+                <th>Member Details</th>
+                <th>Plan & Mode</th>
+                <th>Bill Amount</th>
+                <th>Paid</th>
+                <th>Balance Due</th>
+                <th>Status & Receipt</th>
+              </tr>
+            </thead>
+            <tbody id="billing-table-body">
+              <!-- Rendered via BillingModule -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: WORKOUT SCHEDULES ==================== -->
+      <section class="view-pane" id="view-workouts">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2 id="active-routine-name">Customer Workout Routine</h2>
+            <p class="subtitle" id="active-routine-desc">Professional day-wise split training programs designed for Pro Health Fitness trainees.</p>
+          </div>
+          <div class="view-actions">
+            <select id="workout-member-filter" class="form-control" style="width: 260px;" onchange="WorkoutsModule.filterByMemberRoutine()">
+              <option value="">-- View Individual Member Plan --</option>
+            </select>
+            <button class="btn btn-secondary btn-sm" onclick="WorkoutsModule.openAssignModal()">
+              Assign Routine
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="WorkoutsModule.printWorkoutSheet()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              Print Workout Chart
+            </button>
+          </div>
+        </div>
+
+        <!-- Routine Selector Tabs -->
+        <div class="workout-routine-selector" id="workout-routines-selector">
+          <!-- Rendered via WorkoutsModule -->
+        </div>
+
+        <!-- Day Cards Grid (Monday to Saturday) -->
+        <div class="day-cards-grid" id="routine-schedule-container" style="margin-top: 20px;">
+          <!-- Rendered via WorkoutsModule -->
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: TIMINGS & BATCHES ==================== -->
+      <section class="view-pane" id="view-timing">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2>Timings & Batch Allocations</h2>
+            <p class="subtitle">Monitor batch occupancy, slot capacities, and floor check-ins at MG Road, Katihar.</p>
+          </div>
+        </div>
+
+        <!-- Operating Hours Banner -->
+        <div class="metallic-card timings-overview-banner">
+          <div class="timing-info-block">
+            <div class="timing-badge-clock">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="timing-text">
+              <h3>Facility Schedule: 05:30 AM - 10:30 PM</h3>
+              <p>6 Dedicated Batches daily with Women's Special batch from 10:30 AM to 12:00 PM.</p>
+            </div>
+          </div>
+          <div>
+            <span class="badge badge-silver" style="font-size: 0.8rem; padding: 6px 12px;">MG Road, Katihar (854105)</span>
+          </div>
+        </div>
+
+        <!-- Batches Grid (6 Batches) -->
+        <div class="batches-grid" id="batches-container">
+          <!-- Rendered via TimingModule -->
+        </div>
+
+        <!-- Check-in Console & Live Activity Log -->
+        <div class="dashboard-grid-2">
+          <!-- Check-in Form Card -->
+          <div class="metallic-card" style="padding: 24px;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Live Member Check-in Desk</h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 20px;">
+              Mark arrival for gym attendance and track daily floor volume.
+            </p>
+
+            <form onsubmit="TimingModule.recordCheckin(event)">
+              <div class="form-group">
+                <label class="form-label" for="checkin-member-select">Select Member</label>
+                <select id="checkin-member-select" class="form-control" required>
+                  <option value="">-- Select Member to Check In --</option>
+                </select>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                <button type="submit" class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Mark Check-In</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Activity Log Card -->
+          <div class="metallic-card" style="padding: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h3 style="font-size: 1.15rem;">Today's Check-in Log</h3>
+              <span class="badge badge-silver">Realtime</span>
+            </div>
+
+            <div id="checkin-activity-log" style="max-height: 280px; overflow-y: auto;">
+              <!-- Rendered via TimingModule -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 6: MONTHLY ALERT CENTER ==================== -->
+      <section class="view-pane" id="view-alerts">
+        <div class="view-header">
+          <div class="view-title-block">
+            <h2>Monthly Alert Center</h2>
+            <p class="subtitle">Automatic detection of expiring plans, overdue payments, and 1-click WhatsApp reminder triggers.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-secondary btn-sm" onclick="AlertsModule.init()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              Refresh Scan
+            </button>
+          </div>
+        </div>
+
+        <!-- Alert Filter Tabs -->
+        <div class="alerts-summary-tabs">
+          <button class="alert-tab-btn active" data-tab="all" onclick="AlertsModule.renderAlertsFeed('all')">
+            <span>All Alerts</span>
+          </button>
+          <button class="alert-tab-btn" data-tab="expired" onclick="AlertsModule.renderAlertsFeed('expired')">
+            <span style="color: var(--status-danger);">●</span>
+            <span>Expired Memberships</span>
+          </button>
+          <button class="alert-tab-btn" data-tab="critical" onclick="AlertsModule.renderAlertsFeed('critical')">
+            <span style="color: var(--status-warning);">●</span>
+            <span>Expiring &lt; 3 Days</span>
+          </button>
+          <button class="alert-tab-btn" data-tab="upcoming" onclick="AlertsModule.renderAlertsFeed('upcoming')">
+            <span style="color: var(--steel-cyan);">●</span>
+            <span>Expiring &lt; 7 Days</span>
+          </button>
+          <button class="alert-tab-btn" data-tab="due" onclick="AlertsModule.renderAlertsFeed('due')">
+            <span style="color: var(--status-due);">●</span>
+            <span>Pending Dues</span>
+          </button>
+        </div>
+
+        <!-- Feed of Alerts -->
+        <div class="alerts-feed" id="alerts-feed-container">
+          <!-- Rendered via AlertsModule -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Modal 1: Add / Edit Member Modal -->
+  <div class="modal-overlay" id="member-form-modal">
+    <div class="modal-container large">
+      <div class="modal-header">
+        <h3 id="member-modal-title">REGISTER NEW MEMBER</h3>
+        <button class="modal-close-btn" onclick="App.closeModal('member-form-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="MembersModule.saveMemberFromForm(event)">
+        <div class="modal-body">
+          <input type="hidden" id="member-id-field" value="">
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="member-name">Full Name *</label>
+              <input type="text" id="member-name" class="form-control" required placeholder="e.g. Aman Verma">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-phone">Phone Number (10 Digits) *</label>
+              <input type="tel" id="member-phone" class="form-control" required placeholder="e.g. 9835012345">
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="member-email">Email Address</label>
+              <input type="email" id="member-email" class="form-control" placeholder="e.g. member@gmail.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-gender">Gender</label>
+              <select id="member-gender" class="form-control">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="member-address">Address in Katihar</label>
+              <input type="text" id="member-address" class="form-control" value="MG Road, Katihar, Bihar" placeholder="MG Road, Katihar">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-pincode">Pin Code</label>
+              <input type="text" id="member-pincode" class="form-control" value="854105">
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="member-plan">Membership Plan *</label>
+              <select id="member-plan" class="form-control" required>
+                <option value="plan_monthly">Monthly Standard (₹1,000 / 30 Days)</option>
+                <option value="plan_quarterly">Quarterly Pro (₹2,700 / 90 Days)</option>
+                <option value="plan_halfyearly">Half-Yearly Elite (₹5,000 / 180 Days)</option>
+                <option value="plan_annual">Annual Titan (₹9,000 / 365 Days)</option>
+                <option value="plan_pt">Monthly + Personal Training (₹4,200)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-batch">Preferred Batch Timing *</label>
+              <select id="member-batch" class="form-control" required>
+                <option value="batch_1">Morning Early Bird (05:30 - 07:30 AM)</option>
+                <option value="batch_2" selected>Morning Prime (07:30 - 09:30 AM)</option>
+                <option value="batch_3">Women's Special (10:30 AM - 12:00 PM)</option>
+                <option value="batch_4">Afternoon Power (01:00 - 04:00 PM)</option>
+                <option value="batch_5">Evening Rush (05:00 - 08:00 PM)</option>
+                <option value="batch_6">Night Iron (08:00 - 10:30 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="member-joindate">Joining Date *</label>
+              <input type="date" id="member-joindate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-expirydate">Expiry Date *</label>
+              <input type="date" id="member-expirydate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-workout">Workout Split</label>
+              <select id="member-workout" class="form-control">
+                <option value="ppl">Push - Pull - Legs (6-Day Split)</option>
+                <option value="fat_loss">Fat Loss & HIIT Conditioning</option>
+                <option value="bro_split">Classic Bro Split (Bodybuilding)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="member-paid">Fee Amount Paid (₹)</label>
+              <input type="number" id="member-paid" class="form-control" value="1000" min="0">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="member-due">Balance Due (₹)</label>
+              <input type="number" id="member-due" class="form-control" value="0" min="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="member-goal">Fitness Target & Notes</label>
+            <input type="text" id="member-goal" class="form-control" placeholder="e.g. Muscle hypertrophy, Weight Loss, Strength training">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="App.closeModal('member-form-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Member Record</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: View Full Member Profile -->
+  <div class="modal-overlay" id="member-profile-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>MEMBER DOSSIER</h3>
+        <button class="modal-close-btn" onclick="App.closeModal('member-profile-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="profile-modal-content">
+        <!-- Injected via MembersModule.openProfileModal -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: New Payment / Bill Modal -->
+  <div class="modal-overlay" id="new-bill-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>RECORD PAYMENT & INVOICE</h3>
+        <button class="modal-close-btn" onclick="App.closeModal('new-bill-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="BillingModule.saveBillFromForm(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="bill-member-select">Select Gym Member *</label>
+            <select id="bill-member-select" class="form-control" required onchange="BillingModule.onMemberSelected()">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="bill-type-select">Transaction Type</label>
+              <select id="bill-type-select" class="form-control" onchange="BillingModule.onBillTypeChanged()">
+                <option value="plan_renewal">Membership Renewal / Extension</option>
+                <option value="dues_clearance">Previous Dues Clearance</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="bill-plan-group">
+              <label class="form-label" for="bill-plan-select">Plan Duration</label>
+              <select id="bill-plan-select" class="form-control" onchange="BillingModule.onPlanSelected()">
+                <option value="plan_monthly">Monthly Standard (₹1,000)</option>
+                <option value="plan_quarterly">Quarterly Pro (₹2,700)</option>
+                <option value="plan_halfyearly">Half-Yearly Elite (₹5,000)</option>
+                <option value="plan_annual">Annual Titan (₹9,000)</option>
+                <option value="plan_pt">Monthly + Personal Training (₹4,200)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="bill-amount">Total Fee (₹)</label>
+              <input type="number" id="bill-amount" class="form-control" required min="0" oninput="BillingModule.onPaidAmountChange()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bill-paid">Amount Received (₹)</label>
+              <input type="number" id="bill-paid" class="form-control" required min="0" oninput="BillingModule.onPaidAmountChange()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bill-due">Balance Due (₹)</label>
+              <input type="number" id="bill-due" class="form-control" readonly style="background: rgba(0,0,0,0.4); color: var(--status-danger);">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bill-payment-mode">Payment Method</label>
+            <select id="bill-payment-mode" class="form-control">
+              <option value="UPI / PhonePe">UPI / PhonePe</option>
+              <option value="Google Pay / UPI">Google Pay / UPI</option>
+              <option value="Paytm UPI">Paytm UPI</option>
+              <option value="Cash">Cash Desk</option>
+              <option value="Bank Card">Credit / Debit Card</option>
+              <option value="Net Banking">Net Banking</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="App.closeModal('new-bill-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Generate Invoice & Settle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Assign Workout Modal -->
+  <div class="modal-overlay" id="assign-workout-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>ASSIGN WORKOUT ROUTINE</h3>
+        <button class="modal-close-btn" onclick="App.closeModal('assign-workout-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="WorkoutsModule.saveAssignedWorkout(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="assign-workout-member">Select Member *</label>
+            <select id="assign-workout-member" class="form-control" required>
+              <!-- Dynamic options -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="assign-workout-plan">Target Workout Program *</label>
+            <select id="assign-workout-plan" class="form-control" required>
+              <option value="ppl">Push - Pull - Legs (6-Day Hypertrophy Split)</option>
+              <option value="fat_loss">Fat Loss & HIIT Conditioning Circuit</option>
+              <option value="bro_split">Classic Bro Split (Bodybuilding One-Muscle/Day)</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="App.closeModal('assign-workout-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Assign Routine</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 5: Add / Edit Exercise Modal -->
+  <div class="modal-overlay" id="exercise-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="exercise-modal-title">ADD EXERCISE</h3>
+        <button class="modal-close-btn" onclick="App.closeModal('exercise-modal')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form onsubmit="WorkoutsModule.saveExerciseFromModal(event)">
+        <div class="modal-body">
+          <input type="hidden" id="exercise-modal-routine" value="">
+          <input type="hidden" id="exercise-modal-day" value="">
+          <input type="hidden" id="exercise-modal-index" value="-1">
+
+          <div class="form-group">
+            <label class="form-label" for="exercise-name-input">Exercise Name *</label>
+            <input type="text" id="exercise-name-input" class="form-control" required placeholder="e.g. Incline Dumbbell Press">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="exercise-muscle-input">Target Muscle / Focus</label>
+            <input type="text" id="exercise-muscle-input" class="form-control" placeholder="e.g. Upper Chest / Delts">
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label" for="exercise-sets-input">Sets</label>
+              <input type="text" id="exercise-sets-input" class="form-control" placeholder="e.g. 4 Sets">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="exercise-reps-input">Reps / Duration</label>
+              <input type="text" id="exercise-reps-input" class="form-control" placeholder="e.g. 10-12 Reps">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="App.closeModal('exercise-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Exercise</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 6: Printable Invoice Modal -->
+  <div class="modal-overlay" id="invoice-print-modal">
+    <div class="modal-container large">
+      <div class="modal-header">
+        <h3>PRINTABLE INVOICE RECEIPT</h3>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-primary btn-sm" onclick="BillingModule.printInvoiceModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Print Receipt
+          </button>
+          <button class="modal-close-btn" onclick="App.closeModal('invoice-print-modal')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" id="printable-invoice-content" style="background: #090a0d;">
+        <!-- Injected via BillingModule.openPrintInvoice -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Core JavaScript Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/members.js"></script>
+  <script src="js/billing.js"></script>
+  <script src="js/workouts.js"></script>
+  <script src="js/timing.js"></script>
+  <script src="js/alerts.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
